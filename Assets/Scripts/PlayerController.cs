@@ -1,10 +1,11 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
     CharacterController characterController;
-    [SerializeField] Camera cam;
+    [SerializeField] CinemachineCamera cam;
     [SerializeField] private float movementSpeed = 10;
 
     private float Yrotation;
