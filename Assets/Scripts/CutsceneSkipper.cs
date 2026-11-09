@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class SceneSkipper : MonoBehaviour
+public class CutsceneSkipper : MonoBehaviour
 {
     PlayableDirector timeline;
 
