@@ -5,15 +5,18 @@ using UnityEngine.InputSystem;
 public class InputHandler : MonoBehaviour
 {
     public PlayerController characterController;
+    public StirringGame stirringGame;
     [SerializeField] private CinemachineInputAxisController inputController;
 
     private InputAction moveAction;
     private InputAction lookAction;
+    private InputAction mouseAction;
 
     private void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
         lookAction = InputSystem.actions.FindAction("RMB");
+        mouseAction = InputSystem.actions.FindAction("Look");
     }
 
     private void Update()
@@ -32,6 +35,11 @@ public class InputHandler : MonoBehaviour
             inputController.enabled = false;
             Cursor.visible = true;
         }
+    }
+
+    public void ExportMousePosition()
+    {
+        stirringGame.CheckIfCircle(mouseAction.ReadValue<Vector2>());
     }
 
 
