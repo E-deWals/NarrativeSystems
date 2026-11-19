@@ -47,7 +47,8 @@ public class InputHandler : MonoBehaviour
 
     public void ExportMousePosition()
     {
-        mixingGame.CheckIfCircle(mouseAction.ReadValue<Vector2>());
+        mixingGame.CheckIfCircle(new Vector2 (Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y));
+
     }
 
 

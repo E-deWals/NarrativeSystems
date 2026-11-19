@@ -6,9 +6,10 @@ public class MixingGame : MonoBehaviour
     [SerializeField] private float angleToUse = 45;
     [SerializeField] private PlayableDirector timeline;
     [SerializeField] private float stopAnimationAfter = 0.25f;
+    [SerializeField] private float maxDistance = 10;
 
-    Vector2 centerPoint;
 
+    Vector2 centerPoint = new Vector2(Screen.width / 2, Screen.height / 2);
     Vector2 currentMousePosition;
     Vector2 previousMousePosition;
     Vector2 previousPreviousMousePosition;
@@ -26,8 +27,8 @@ public class MixingGame : MonoBehaviour
 
         float angle = Vector2.Angle(side1, side2);
         float angle2 = Vector2.Angle(side2, side3);
-
-        if (angle + angle2 > angleToUse)
+        float distance = (currentMousePosition - centerPoint).magnitude;
+        if (angle + angle2 > angleToUse && distance <= maxDistance)
         {
             timeline.Play();
             cooldown = Time.time + stopAnimationAfter;
@@ -37,6 +38,7 @@ public class MixingGame : MonoBehaviour
             timeline.Pause();
         }
 
+        Debug.Log(distance);
         previousMousePosition = currentMousePosition;
         previousPreviousMousePosition = previousMousePosition;
     }

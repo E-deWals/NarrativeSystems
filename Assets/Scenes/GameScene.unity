@@ -1431,8 +1431,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.030864336, y: 0.4048001, z: -0.022416612, w: 0.9136092}
-  m_LocalPosition: {x: -50.388912, y: 2.661707, z: 37.69506}
+  m_LocalRotation: {x: -0.14144044, y: 0.8049562, z: 0.5355846, w: 0.2125777}
+  m_LocalPosition: {x: 2.1203156, y: 9.325, z: 4.064766}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1591,6 +1591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 368967727}
   - component: {fileID: 368967728}
+  - component: {fileID: 368967729}
   m_Layer: 5
   m_Name: MixingGameController
   m_TagString: Untagged
@@ -1629,9 +1630,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbcb7bc312cf1374bbd11a7de11ba8de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StirringGame
-  angleToUse: 45
+  angleToUse: 30
   timeline: {fileID: 2004480525}
   stopAnimationAfter: 0.25
+  maxDistance: 25
+--- !u!114 &368967729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368967726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: d1a327947633b1046973eea50b164987, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 368967726}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &388109878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4160,13 +4192,14 @@ GameObject:
   - component: {fileID: 1166390048}
   - component: {fileID: 1166390047}
   - component: {fileID: 1166390046}
+  - component: {fileID: 1166390049}
   m_Layer: 5
   m_Name: MixingGameUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1166390045
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4251,6 +4284,36 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1166390049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166390044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: d1a327947633b1046973eea50b164987, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1166390044}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1194768996
 GameObject:
   m_ObjectHideFlags: 0
@@ -7295,7 +7358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1932845705
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7835,6 +7898,10 @@ PlayableDirector:
     value: {fileID: 325384358}
   - key: {fileID: -6597250770898700428, guid: 5aca08659a6d8cb4b814c3c106bf029b, type: 2}
     value: {fileID: 1150037364}
+  - key: {fileID: 1676199791396256665, guid: 5aca08659a6d8cb4b814c3c106bf029b, type: 2}
+    value: {fileID: 1166390049}
+  - key: {fileID: 3573548083389107791, guid: 5aca08659a6d8cb4b814c3c106bf029b, type: 2}
+    value: {fileID: 368967729}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &2004480526
