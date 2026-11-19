@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class InputHandler : MonoBehaviour
 {
     public PlayerController characterController;
-    public StirringGame stirringGame;
+    public MixingGame mixingGame;
     [SerializeField] private CinemachineInputAxisController inputController;
 
     private InputAction moveAction;
@@ -37,10 +37,19 @@ public class InputHandler : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (mixingGame.gameObject.activeSelf == true)
+        {
+            ExportMousePosition();
+        }
+    }
+
     public void ExportMousePosition()
     {
-        stirringGame.CheckIfCircle(mouseAction.ReadValue<Vector2>());
+        mixingGame.CheckIfCircle(mouseAction.ReadValue<Vector2>());
     }
+
 
 
 }
