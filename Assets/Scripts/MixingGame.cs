@@ -37,8 +37,6 @@ public class MixingGame : MonoBehaviour
         {
             timeline.Pause();
         }
-
-        Debug.Log(distance);
         previousMousePosition = currentMousePosition;
         previousPreviousMousePosition = previousMousePosition;
     }
